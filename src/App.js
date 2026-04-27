@@ -41,15 +41,15 @@ const CSS = `
 
 /* ─── PARTS DATA ─── */
 const PARTS = [
-  {id:'HDS-001',name:'Part 1',cat:'motor',type:'Piston Motor',desc:'Complete barrel and piston assembly for large variable-displacement piston motors. OEM specification tolerances for high-pressure industrial drives.',price:'₹1,85,000',badge:'oem',bClass:'b-oem',stock:'in',stockLabel:'In Stock',specs:['350 Bar','OEM Grade','Pan-India'],icon:'🔩',bg:'linear-gradient(135deg,#1a0a0a,#240c0c)'},
-  {id:'HDS-002',name:'Part 2',cat:'pump',type:'Hydraulic Pump',desc:'Cast-iron housing gear pump for large-flow hydraulic systems. Porting matched to OEM flow ratings for steel plant and paper mill applications.',price:'₹1,38,000',badge:'hot',bClass:'b-hot',stock:'in',stockLabel:'In Stock',specs:['280 Bar','High Flow','OEM Match'],icon:'⚙️',bg:'linear-gradient(135deg,#0a0a1a,#0c0c24)'},
-  {id:'HDS-003',name:'Part 3',cat:'valve',type:'Control Valve',desc:'Proportional electro-hydraulic directional control valve, NG10 subplate. Hysteresis below 0.2%, for precision motion control in press and crane drives.',price:'₹2,35,000',badge:'new',bClass:'b-new',stock:'in',stockLabel:'In Stock',specs:['315 Bar','NG10 Mount','±10V Signal'],icon:'🎛️',bg:'linear-gradient(135deg,#0a1a0a,#0c240c)'},
-  {id:'HDS-004',name:'Part 4',cat:'pump',type:'Variable Axial Pump',desc:'Variable displacement axial piston pump with pressure-flow control, rebuilt to factory spec. For load-sensing circuits in heavy mobile and industrial machinery.',price:'₹3,75,000',badge:'sale',bClass:'b-sale',stock:'low',stockLabel:'Low Stock',specs:['350 Bar','Variable Disp.','Rebuilt'],icon:'🔧',bg:'linear-gradient(135deg,#1a0f0a,#241508)'},
-  {id:'HDS-005',name:'Part 5',cat:'seal',type:'Seal & Gasket Kit',desc:'Full bearing, shaft seal, and O-ring repair kit for bent-axis motors. Viton seals for high temperature and chemical resistance in Indian environments.',price:'₹14,500',badge:null,bClass:'',stock:'in',stockLabel:'In Stock',specs:['Viton Seals','High Temp','IP67'],icon:'🛡️',bg:'linear-gradient(135deg,#0e0e0e,#1a1a1a)'},
-  {id:'HDS-006',name:'Part 6',cat:'sensor',type:'Pressure Transducer',desc:'0–600 bar ceramic sensing element sensor with 4–20 mA output. Stainless wetted parts for hot and humid Indian industrial conditions.',price:'₹22,000',badge:'new',bClass:'b-new',stock:'in',stockLabel:'In Stock',specs:['0–600 Bar','4–20 mA','SS Body'],icon:'📡',bg:'linear-gradient(135deg,#0a100e,#0c1a18)'},
-  {id:'HDS-007',name:'Part 7',cat:'motor',type:'Motor Component',desc:'Precision-lapped replacement cylinder barrel for large bent-axis motors. Case-hardened alloy steel with ground bore to sub-micron tolerance.',price:'₹1,22,000',badge:null,bClass:'',stock:'low',stockLabel:'Low Stock',specs:['400 Bar','Case-Hardened','Ground Bore'],icon:'🧲',bg:'linear-gradient(135deg,#1a0a0a,#240c0c)'},
-  {id:'HDS-008',name:'Part 8',cat:'seal',type:'Hydraulic Hose Kit',desc:'Wire-braid high-pressure hose assembly with SAE 4-bolt flanges. 2-inch bore rated to 350 bar, used in steel rolling mill and press circuits.',price:'₹40,500',badge:null,bClass:'',stock:'in',stockLabel:'In Stock',specs:['2" Bore','350 Bar','2.5 m Length'],icon:'🔗',bg:'linear-gradient(135deg,#0e0e1a,#10101e)'},
-  {id:'HDS-009',name:'Part 9',cat:'sensor',type:'Flow Sensor',desc:'Gear-type positive displacement flow meter with RS485 Modbus output for SCADA/PLC integration. Used in paper and textile mills across India.',price:'₹65,000',badge:'hot',bClass:'b-hot',stock:'out',stockLabel:'Out of Stock',specs:['10–500 L/min','±0.5%','Modbus RTU'],icon:'📊',bg:'linear-gradient(135deg,#0a120a,#0c1a0c)'},
+  {id:'HDS-001',name:'Part 1',cat:'motor',type:'Piston Motor',desc:'Complete barrel and piston assembly for large variable-displacement piston motors. OEM specification tolerances for high-pressure industrial drives.',badge:'oem',bClass:'b-oem',stock:'in',stockLabel:'In Stock',specs:['350 Bar','OEM Grade','Pan-India'],icon:'🔩',bg:'linear-gradient(135deg,#1a0a0a,#240c0c)'},
+  {id:'HDS-002',name:'Part 2',cat:'pump',type:'Hydraulic Pump',desc:'Cast-iron housing gear pump for large-flow hydraulic systems. Porting matched to OEM flow ratings for steel plant and paper mill applications.',badge:'hot',bClass:'b-hot',stock:'in',stockLabel:'In Stock',specs:['280 Bar','High Flow','OEM Match'],icon:'⚙️',bg:'linear-gradient(135deg,#0a0a1a,#0c0c24)'},
+  {id:'HDS-003',name:'Part 3',cat:'valve',type:'Control Valve',desc:'Proportional electro-hydraulic directional control valve, NG10 subplate. Hysteresis below 0.2%, for precision motion control in press and crane drives.',badge:'new',bClass:'b-new',stock:'in',stockLabel:'In Stock',specs:['315 Bar','NG10 Mount','±10V Signal'],icon:'🎛️',bg:'linear-gradient(135deg,#0a1a0a,#0c240c)'},
+  {id:'HDS-004',name:'Part 4',cat:'pump',type:'Variable Axial Pump',desc:'Variable displacement axial piston pump with pressure-flow control, rebuilt to factory spec. For load-sensing circuits in heavy mobile and industrial machinery.',badge:'sale',bClass:'b-sale',stock:'low',stockLabel:'Low Stock',specs:['350 Bar','Variable Disp.','Rebuilt'],icon:'🔧',bg:'linear-gradient(135deg,#1a0f0a,#241508)'},
+  {id:'HDS-005',name:'Part 5',cat:'seal',type:'Seal & Gasket Kit',desc:'Full bearing, shaft seal, and O-ring repair kit for bent-axis motors. Viton seals for high temperature and chemical resistance in Indian environments.',badge:null,bClass:'',stock:'in',stockLabel:'In Stock',specs:['Viton Seals','High Temp','IP67'],icon:'🛡️',bg:'linear-gradient(135deg,#0e0e0e,#1a1a1a)'},
+  {id:'HDS-006',name:'Part 6',cat:'sensor',type:'Pressure Transducer',desc:'0–600 bar ceramic sensing element sensor with 4–20 mA output. Stainless wetted parts for hot and humid Indian industrial conditions.',badge:'new',bClass:'b-new',stock:'in',stockLabel:'In Stock',specs:['0–600 Bar','4–20 mA','SS Body'],icon:'📡',bg:'linear-gradient(135deg,#0a100e,#0c1a18)'},
+  {id:'HDS-007',name:'Part 7',cat:'motor',type:'Motor Component',desc:'Precision-lapped replacement cylinder barrel for large bent-axis motors. Case-hardened alloy steel with ground bore to sub-micron tolerance.',badge:null,bClass:'',stock:'low',stockLabel:'Low Stock',specs:['400 Bar','Case-Hardened','Ground Bore'],icon:'🧲',bg:'linear-gradient(135deg,#1a0a0a,#240c0c)'},
+  {id:'HDS-008',name:'Part 8',cat:'seal',type:'Hydraulic Hose Kit',desc:'Wire-braid high-pressure hose assembly with SAE 4-bolt flanges. 2-inch bore rated to 350 bar, used in steel rolling mill and press circuits.',badge:null,bClass:'',stock:'in',stockLabel:'In Stock',specs:['2" Bore','350 Bar','2.5 m Length'],icon:'🔗',bg:'linear-gradient(135deg,#0e0e1a,#10101e)'},
+  {id:'HDS-009',name:'Part 9',cat:'sensor',type:'Flow Sensor',desc:'Gear-type positive displacement flow meter with RS485 Modbus output for SCADA/PLC integration. Used in paper and textile mills across India.',badge:'hot',bClass:'b-hot',stock:'out',stockLabel:'Out of Stock',specs:['10–500 L/min','±0.5%','Modbus RTU'],icon:'📊',bg:'linear-gradient(135deg,#0a120a,#0c1a0c)'},
 ];
 
 const GALLERY = [
@@ -68,10 +68,10 @@ const GALLERY = [
   {id:13, cat:'parts',    title:'Zenmax Radial Motor — Cylinder Barrel',  loc:'Zenmax Factory',           uri:'/gallery/photo13.jpeg'},
   {id:14, cat:'workshop', title:'HDS & Zenmax Partnership Meeting',       loc:'Zenmax HQ, China',         uri:'/gallery/photo14.jpeg'},
   {id:15, cat:'parts',    title:'Zenmax Drive Motor — Showroom Floor',    loc:'Zenmax Factory',           uri:'/gallery/photo15.jpeg'},
-  {id:16, cat:'workshop', title:'Zenmax Hydraulic Test Bench',            loc:'Zenmax Factory',           uri:'/gallery/photo16.jpeg'},
-  {id:17, cat:'field',    title:'Before & After — Motor Replacement',     loc:'Paper Mill, India',        uri:'/gallery/photo17.jpeg'},
-  {id:18, cat:'field',    title:'On-Site Motor Commissioning',            loc:'Cement Plant, India',      uri:'/gallery/photo18.jpeg'},
-  {id:19, cat:'overhaul', title:'Rotor Assembly — Chain Lift',            loc:'HDS Workshop, Pune',       uri:'/gallery/photo19.jpeg'},
+  
+  {id:16, cat:'field',    title:'Before & After — Motor Replacement',     loc:'Paper Mill, India',        uri:'/gallery/photo17.jpeg'},
+  {id:17, cat:'field',    title:'On-Site Motor Commissioning',            loc:'Cement Plant, India',      uri:'/gallery/photo18.jpeg'},
+  {id:18, cat:'overhaul', title:'Rotor Assembly — Chain Lift',            loc:'HDS Workshop, Pune',       uri:'/gallery/photo19.jpeg'},
 ];
 
 /* ─── CANVAS DRAW ─── */
@@ -219,8 +219,8 @@ function HomePage({ setPage }) {
           Hydraulic Drive Specialists · Est. 2020 · Pune, India
         </div>
         <h1 style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:'clamp(4rem,10vw,8.5rem)',letterSpacing:'0.03em',lineHeight:0.88,color:'#111111',marginBottom:'32px',maxWidth:'900px'}}>
-          LARGE DRIVE<br/>
-          <span style={{color:'#c8102e'}}>HYDRAULIC</span><br/>
+          LARGE HYDRAULIC<br/>
+          <span style={{color:'#c8102e'}}>DRIVE</span><br/>
           <span style={{WebkitTextStroke:'2px rgba(200,16,46,0.35)',color:'transparent'}}>SOLUTIONS</span>
         </h1>
         <p style={{fontSize:'1.05rem',color:'#444444',maxWidth:'540px',lineHeight:1.8,fontWeight:300,marginBottom:'44px'}}>
@@ -228,7 +228,7 @@ function HomePage({ setPage }) {
         </p>
         <div style={{display:'flex',gap:'16px',flexWrap:'wrap'}}>
           <BtnPrimary onClick={()=>setPage('services')}>Our Services →</BtnPrimary>
-          <BtnOutline onClick={()=>setPage('contact')}>Get a Quote</BtnOutline>
+          <BtnOutline onClick={()=>setPage('contact')}>Get a Quote</BtnOutline> 
         </div>
       </div>
       {/* Ticker */}
@@ -353,7 +353,7 @@ function PartsPage({ toast }) {
                 </div>
               </div>
               <button disabled={p.stock==='out'} onClick={()=>toast.show(`📦 Enquiry raised for: ${p.name}`)} style={{width:'100%',padding:'10px',background:'transparent',border:'1px solid rgba(0,0,0,0.10)',color:p.stock==='out'?'#999999':'#666666',fontFamily:"'Share Tech Mono',monospace",fontSize:'0.62rem',letterSpacing:'0.15em',textTransform:'uppercase',cursor:p.stock==='out'?'not-allowed':'pointer',borderRadius:'3px',opacity:p.stock==='out'?0.4:1}}>
-                {p.stock==='out'?'Out of Stock — Notify Me':'+ Request / Order Part'}
+                {p.stock==='out'?'Out of Stock — Notify Me':'+ Request Part'}
               </button>
             </div>
           </div>
@@ -381,12 +381,12 @@ function ServicesPage({ setPage }) {
     return()=>timers.forEach(clearInterval);
   },[]);
   const svcs=[
-    {n:'01',icon:'🔬',name:'Field Diagnostics & Fault Analysis',desc:'On-site condition monitoring using ultrasonic, vibration, and thermal imaging to pinpoint failures across industrial sites.',items:['Vibration spectrum analysis','Thermal imaging & oil analysis','Pressure drop & flow testing','Detailed fault report & quotation'],rate:'₹8,500 / visit',from:'From'},
-    {n:'02',icon:'🔧',name:'Drive Overhaul & Reconditioning',desc:'Complete disassembly, precision measurement, and rebuild of hydraulic drives back to OEM specification.',items:['Full strip-down & dimensional check','OEM or equivalent parts replacement','Pressure & flow bench testing','12-month workshop warranty'],rate:'₹35,000',from:'From'},
-    {n:'03',icon:'⚡',name:'Emergency Breakdown Response',desc:'24/7 mobile rapid-response teams for steel plants, paper mills, and heavy industry across India.',items:['24/7/365 hotline coverage','Fully equipped mobile workshop','Common spares carried on vehicle','Same-day emergency parts sourcing'],rate:'Rates',from:'Call for'},
-    {n:'04',icon:'📊',name:'System Design & Engineering',desc:'Custom circuit design and system integration for new drive installations and energy-efficiency improvement projects.',items:['ISO schematic & circuit design','Load and flow calculations','Component selection & BOM','Site commissioning & sign-off'],rate:'₹55,000',from:'From'},
-    {n:'05',icon:'📋',name:'Annual Maintenance Contracts',desc:'Scheduled AMC plans to maximise drive lifespan and minimise unplanned downtime, tailored to your duty cycle.',items:['Quarterly / half-yearly inspections','Priority parts pricing & stocking','Dedicated account engineer','Full service history documentation'],rate:'₹4,500 / mo',from:'From'},
-    {n:'06',icon:'🎓',name:'Operator & Technician Training',desc:'NSDC-aligned training on hydraulic principles, fault-finding, and safe operation of large drives for your workforce.',items:['Half-day to 3-day courses','Site-specific or classroom delivery','Certificate of completion issued','Custom materials for your fleet'],rate:'₹12,000 / head',from:'From'},
+    {n:'01',icon:'🔬',name:'Field Diagnostics & Fault Analysis',desc:'On-site condition monitoring using ultrasonic, vibration, and thermal imaging to pinpoint failures across industrial sites.',items:['Vibration spectrum analysis','Thermal imaging & oil analysis','Pressure drop & flow testing','Detailed fault report & quotation']},
+    {n:'02',icon:'🔧',name:'Drive Overhaul & Reconditioning',desc:'Complete disassembly, precision measurement, and rebuild of hydraulic drives back to OEM specification.',items:['Full strip-down & dimensional check','OEM or equivalent parts replacement','Pressure & flow bench testing','12-month workshop warranty']},
+    {n:'03',icon:'⚡',name:'Emergency Breakdown Response',desc:'24/7 mobile rapid-response teams for steel plants, paper mills, and heavy industry across India.',items:['24/7/365 hotline coverage','Fully equipped mobile workshop','Common spares carried on vehicle','Same-day emergency parts sourcing']},
+    {n:'04',icon:'📊',name:'System Design & Engineering',desc:'Custom circuit design and system integration for new drive installations and energy-efficiency improvement projects.',items:['ISO schematic & circuit design','Load and flow calculations','Component selection & BOM','Site commissioning & sign-off']},
+    {n:'05',icon:'📋',name:'Annual Maintenance Contracts',desc:'Scheduled AMC plans to maximise drive lifespan and minimise unplanned downtime, tailored to your duty cycle.',items:['Quarterly / half-yearly inspections','Priority parts pricing & stocking','Dedicated account engineer','Full service history documentation']},
+    {n:'06',icon:'🎓',name:'Operator & Technician Training',desc:'NSDC-aligned training on hydraulic principles, fault-finding, and safe operation of large drives for your workforce.',items:['Half-day to 3-day courses','Site-specific or classroom delivery','Certificate of completion issued','Custom materials for your fleet']},
   ];
   const steps=['Initial Call & Fault Brief','On-Site Diagnostic','Quote & Parts Sourcing','Repair & Workshop Build','Commissioning & Sign-Off'];
   return (
@@ -641,10 +641,10 @@ function ContactPage({ toast }) {
             <div style={{fontFamily:"'Share Tech Mono',monospace",fontSize:'0.6rem',letterSpacing:'0.2em',color:'#c8102e',textTransform:'uppercase',marginBottom:'6px',display:'flex',alignItems:'center',gap:'8px'}}>
               <span className="blink">●</span> 24/7 Emergency Breakdown Line
             </div>
-            <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:'1.7rem',letterSpacing:'0.06em',color:'#111111'}}>+91 98765 43210</div>
-            <div style={{fontSize:'0.75rem',color:'#444444',fontWeight:300,marginTop:'2px'}}>Critical response · Industrial & steel plant priority</div>
+            <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:'1.7rem',letterSpacing:'0.06em',color:'#111111'}}>+91 9850968155</div>
+            <div style={{fontSize:'0.75rem',color:'#444444',fontWeight:300,marginTop:'2px'}}></div>
           </div>
-          {[['📍','Workshop & Head Office','Plot No. 14, MIDC Industrial Area\nPune, Maharashtra — 411 019'],['📞','General Enquiries','+91 20 2765 4321'],['✉️','Email','service@hydraulicdiagnostic.in\nparts@hydraulicdiagnostic.in'],['🕐','Workshop Hours','Mon–Sat: 8:00 AM – 6:00 PM IST\nSun: Emergency calls only'],['🚚','Parts Dispatch','Same-day for orders before 2 PM IST\nPan-India courier & freight available']].map(([ico,lbl,val])=>(
+          {[['📍','Workshop & Head Office','G.95, ALANDI-MARKAL ROAD,BEHIND VIVEKANAND HOSPITAL,DHANORE\nPUNE, MAHARASHTRA — 412 105'],['📞','General Enquiries','+91-9850968155'],['✉️','Email','hds.meyyappan@gmail.com'],['🕐','Workshop Hours','Mon–Sat: 8:00 AM – 6:00 PM IST\nSun: Emergency calls only']].map(([ico,lbl,val])=>(
             <div key={lbl} style={{display:'flex',gap:'14px',alignItems:'flex-start',marginBottom:'18px'}}>
               <div style={{width:'40px',height:'40px',flexShrink:0,background:'rgba(200,16,46,0.07)',border:'1px solid rgba(200,16,46,0.25)',borderRadius:'4px',display:'flex',alignItems:'center',justifyContent:'center',fontSize:'1rem'}}>{ico}</div>
               <div>
@@ -659,14 +659,14 @@ function ContactPage({ toast }) {
           <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:'2rem',letterSpacing:'0.08em',color:'#111111',marginBottom:'6px'}}>SEND AN ENQUIRY</div>
           <div style={{fontSize:'0.83rem',color:'#666666',marginBottom:'34px',fontWeight:300}}>A specialist engineer will respond within 2 business hours (IST).</div>
           <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'16px'}}>
-            <div style={{display:'flex',flexDirection:'column',gap:'7px',marginBottom:'18px'}}><label style={{fontFamily:"'Share Tech Mono',monospace",fontSize:'0.58rem',letterSpacing:'0.18em',color:'#666666',textTransform:'uppercase'}}>First Name</label><input style={inp} placeholder="Rajesh"/></div>
-            <div style={{display:'flex',flexDirection:'column',gap:'7px',marginBottom:'18px'}}><label style={{fontFamily:"'Share Tech Mono',monospace",fontSize:'0.58rem',letterSpacing:'0.18em',color:'#666666',textTransform:'uppercase'}}>Last Name</label><input style={inp} placeholder="Sharma"/></div>
+            <div style={{display:'flex',flexDirection:'column',gap:'7px',marginBottom:'18px'}}><label style={{fontFamily:"'Share Tech Mono',monospace",fontSize:'0.58rem',letterSpacing:'0.18em',color:'#666666',textTransform:'uppercase'}}>First Name</label><input style={inp} placeholder=""/></div>
+            <div style={{display:'flex',flexDirection:'column',gap:'7px',marginBottom:'18px'}}><label style={{fontFamily:"'Share Tech Mono',monospace",fontSize:'0.58rem',letterSpacing:'0.18em',color:'#666666',textTransform:'uppercase'}}>Last Name</label><input style={inp} placeholder=""/></div>
           </div>
           <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'16px'}}>
-            <div style={{display:'flex',flexDirection:'column',gap:'7px',marginBottom:'18px'}}><label style={{fontFamily:"'Share Tech Mono',monospace",fontSize:'0.58rem',letterSpacing:'0.18em',color:'#666666',textTransform:'uppercase'}}>Company / Plant</label><input style={inp} placeholder="Tata Steel / JSW Plants"/></div>
-            <div style={{display:'flex',flexDirection:'column',gap:'7px',marginBottom:'18px'}}><label style={{fontFamily:"'Share Tech Mono',monospace",fontSize:'0.58rem',letterSpacing:'0.18em',color:'#666666',textTransform:'uppercase'}}>Mobile</label><input style={{...inp}} type="tel" placeholder="+91 98XXX XXXXX"/></div>
+            <div style={{display:'flex',flexDirection:'column',gap:'7px',marginBottom:'18px'}}><label style={{fontFamily:"'Share Tech Mono',monospace",fontSize:'0.58rem',letterSpacing:'0.18em',color:'#666666',textTransform:'uppercase'}}>Company / Plant</label><input style={inp} placeholder=""/></div>
+            <div style={{display:'flex',flexDirection:'column',gap:'7px',marginBottom:'18px'}}><label style={{fontFamily:"'Share Tech Mono',monospace",fontSize:'0.58rem',letterSpacing:'0.18em',color:'#666666',textTransform:'uppercase'}}>Mobile</label><input style={{...inp}} type="tel" placeholder=""/></div>
           </div>
-          <div style={{display:'flex',flexDirection:'column',gap:'7px',marginBottom:'18px'}}><label style={{fontFamily:"'Share Tech Mono',monospace",fontSize:'0.58rem',letterSpacing:'0.18em',color:'#666666',textTransform:'uppercase'}}>Email Address</label><input style={inp} type="email" placeholder="rajesh.sharma@company.in"/></div>
+          <div style={{display:'flex',flexDirection:'column',gap:'7px',marginBottom:'18px'}}><label style={{fontFamily:"'Share Tech Mono',monospace",fontSize:'0.58rem',letterSpacing:'0.18em',color:'#666666',textTransform:'uppercase'}}>Email Address</label><input style={inp} type="email" placeholder=""/></div>
           <div style={{display:'flex',flexDirection:'column',gap:'7px',marginBottom:'18px'}}>
             <label style={{fontFamily:"'Share Tech Mono',monospace",fontSize:'0.58rem',letterSpacing:'0.18em',color:'#666666',textTransform:'uppercase'}}>Enquiry Type</label>
             <div style={{display:'grid',gridTemplateColumns:'1fr 1fr',gap:'8px'}}>
@@ -693,7 +693,7 @@ function ContactPage({ toast }) {
     </div>
   );
 }
-
+  
 /* ─── FOOTER ─── */
 function Footer({ setPage }) {
   return (
@@ -716,7 +716,7 @@ function Footer({ setPage }) {
       </div>
       <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',flexWrap:'wrap',gap:'12px',paddingTop:'20px',fontFamily:"'Share Tech Mono',monospace",fontSize:'0.54rem',color:'#999999',letterSpacing:'0.08em'}}>
         <span>© 2025 Hydraulic Diagnostic Services Pvt. Ltd. · All rights reserved</span>
-        <span>Plot No. 14, MIDC Industrial Area, Pune — 411 019 · GST: 27XXXXX0000X1ZX</span>
+        <span>G.95, ALANDI-MARKAL ROAD,BEHIND VIVEKANAND HOSPITAL,DHANORE,Pune — 412 105 · GST: 27XXXXX0000X1ZX</span>
       </div>
     </footer>
   );
