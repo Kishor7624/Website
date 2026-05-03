@@ -37,7 +37,80 @@ const CSS = `
   .blink{animation:blink 1s step-end infinite}
   @keyframes lbIn{from{opacity:0}to{opacity:1}}
   .lb-anim{animation:lbIn .3s ease}
+  function Nav({ page, setPage }) {
+  const [menuOpen, setMenuOpen] = useState(false);
+  const links = [
+    {id:'home',label:'Home'},
+    {id:'parts',label:'Parts'},
+    {id:'services',label:'Services'},
+    {id:'gallery',label:'Gallery'},
+    {id:'contact',label:'Contact'}
+  ];
+
+  return (
+    <>
+      <nav style={{...}}>
+        {/* existing logo code stays the same */}
+
+        {/* Desktop nav links — keep existing code */}
+        <div style={{display:'flex',gap:'4px',alignItems:'center'}}
+             className="desktop-nav">
+          {/* existing nav buttons */}
+        </div>
+
+        {/* Mobile hamburger button */}
+        <button
+          onClick={() => setMenuOpen(!menuOpen)}
+          style={{
+            display:'none', // shown via CSS on mobile
+            background:'none',border:'none',cursor:'pointer',
+            flexDirection:'column',gap:'5px',padding:'8px',
+          }}
+          className="hamburger">
+          <span style={{width:'22px',height:'2px',background:'#111111',display:'block'}}/>
+          <span style={{width:'22px',height:'2px',background:'#111111',display:'block'}}/>
+          <span style={{width:'22px',height:'2px',background:'#111111',display:'block'}}/>
+        </button>
+      </nav>
+
+      {/* Mobile dropdown menu */}
+      {menuOpen && (
+        <div style={{
+          position:'fixed',top:'60px',left:0,right:0,zIndex:999,
+          background:'#ffffff',borderBottom:'2px solid #c8102e',
+          padding:'16px',display:'flex',flexDirection:'column',gap:'4px',
+          boxShadow:'0 8px 24px rgba(0,0,0,0.12)'
+        }}>
+          {links.map(l=>(
+            <button key={l.id} onClick={()=>{setPage(l.id);setMenuOpen(false);}}
+              style={{
+                background:'none',border:'none',
+                color: page===l.id ? '#c8102e' : '#111111',
+                fontFamily:"'Share Tech Mono',monospace",
+                fontSize:'0.85rem',letterSpacing:'0.14em',
+                textTransform:'uppercase',padding:'14px 8px',
+                cursor:'pointer',textAlign:'left',
+                borderBottom:'1px solid rgba(0,0,0,0.08)'
+              }}>
+              {l.label}
+            </button>
+          ))}
+          <button onClick={()=>{setPage('contact');setMenuOpen(false);}}
+            style={{
+              background:'#c8102e',border:'none',color:'#ffffff',
+              fontFamily:"'Share Tech Mono',monospace",fontSize:'0.75rem',
+              letterSpacing:'0.18em',textTransform:'uppercase',
+              padding:'14px',cursor:'pointer',borderRadius:'3px',marginTop:'8px'
+            }}>
+            Get Quote
+          </button>
+        </div>
+      )}
+    </>
+  );
+}
 `;
+
 
 /* ─── PARTS DATA ─── */
 const PARTS = [
