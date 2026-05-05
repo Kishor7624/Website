@@ -583,12 +583,11 @@ function GalleryPage() {
 function ContactPage({ toast }) {
   const [enqType, setEnqType] = useState(null);
   const [urgency, setUrgency] = useState(null);
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [company, setCompany] = useState('');
-  const [mobile, setMobile] = useState('');
-  const [email, setEmail] = useState('');
-  const [message, setMessage] = useState('');
+  const [firstName = useState('');
+  const [company] = useState('');
+  const [mobile] = useState('');
+  const [email] = useState('');
+  const [message] = useState('');
   const inp = {background:'#f8f7f5',border:'1px solid rgba(90,90,98,.3)',color:'#111111',fontFamily:"'Barlow',sans-serif",fontSize:'0.88rem',padding:'13px 15px',borderRadius:'3px',outline:'none',width:'100%'};
   const enqOpts=[['01 — Parts','Parts & Components Order'],['02 — Service','Drive Repair / Overhaul'],['03 — Diagnostic','Fault Investigation'],['04 — AMC','Maintenance Contract'],['05 — Training','Operator / Technician Training'],['06 — Other','General Enquiry']];
   const urgOpts=[['n','Standard','#3ecf6c'],['u','Urgent — 48h','#e8a020'],['c','⚠ Critical','#c8102e']];
