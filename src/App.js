@@ -147,48 +147,7 @@ const GALLERY = [
   {id:18, cat:'overhaul', title:'Rotor Assembly — Chain Lift',            loc:'HDS Workshop, Pune',       uri:'/gallery/photo19.jpeg'},
 ];
 
-/* ─── CANVAS DRAW ─── */
-function drawThumb(canvas, item) {
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d'), w = canvas.width, h = canvas.height;
-  ctx.clearRect(0,0,w,h);
-  const bg = ctx.createLinearGradient(0,0,w,h);
-  bg.addColorStop(0, item.colors[0]); bg.addColorStop(1, item.colors[1]+'88');
-  ctx.fillStyle = bg; ctx.fillRect(0,0,w,h);
-  ctx.strokeStyle='rgba(200,16,46,0.07)'; ctx.lineWidth=1;
-  for(let x=0;x<w;x+=36){ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,h);ctx.stroke();}
-  for(let y=0;y<h;y+=36){ctx.beginPath();ctx.moveTo(0,y);ctx.lineTo(w,y);ctx.stroke();}
-  const cx=w/2,cy=h/2,r=Math.min(w,h)*0.26;
-  ctx.strokeStyle=item.colors[2]; ctx.lineWidth=2.5;
-  ctx.shadowColor=item.colors[2]; ctx.shadowBlur=16;
-  if(item.shapes==='motor'||item.shapes==='pump'){
-    ctx.beginPath();ctx.arc(cx,cy,r,0,Math.PI*2);ctx.stroke();
-    ctx.beginPath();ctx.arc(cx,cy,r*0.45,0,Math.PI*2);ctx.stroke();
-    for(let i=0;i<8;i++){const a=i*Math.PI/4;ctx.beginPath();ctx.moveTo(cx+Math.cos(a)*r*0.45,cy+Math.sin(a)*r*0.45);ctx.lineTo(cx+Math.cos(a)*r,cy+Math.sin(a)*r);ctx.stroke();}
-    ctx.shadowBlur=4; ctx.strokeRect(cx-r*1.3,cy-r*0.95,r*2.6,r*1.9);
-  } else if(item.shapes==='field'){
-    for(let ln=0;ln<3;ln++){ctx.beginPath();const yo=cy-22+ln*22;ctx.moveTo(w*0.1,yo);for(let x=w*0.1;x<w*0.9;x+=3)ctx.lineTo(x,yo+Math.sin((x/w)*Math.PI*7+ln)*16);ctx.stroke();}
-  } else if(item.shapes==='valve'){
-    ctx.beginPath();ctx.moveTo(cx,cy-44);ctx.lineTo(cx+36,cy);ctx.lineTo(cx,cy+44);ctx.lineTo(cx-36,cy);ctx.closePath();ctx.stroke();
-    ctx.beginPath();ctx.moveTo(w*0.08,cy);ctx.lineTo(cx-36,cy);ctx.moveTo(cx+36,cy);ctx.lineTo(w*0.92,cy);ctx.stroke();
-  } else if(item.shapes==='bench'){
-    for(let i=0;i<3;i++){const gx=w*(0.22+i*0.28),gy=cy;ctx.beginPath();ctx.arc(gx,gy,28,0,Math.PI*2);ctx.stroke();const ang=-Math.PI*0.75+i*0.5*Math.PI;ctx.beginPath();ctx.moveTo(gx,gy);ctx.lineTo(gx+Math.cos(ang)*20,gy+Math.sin(ang)*20);ctx.stroke();}
-  } else if(item.shapes==='hose'){
-    ctx.lineWidth=5;ctx.beginPath();ctx.moveTo(w*0.06,cy);for(let x=w*0.06;x<w*0.94;x+=2)ctx.lineTo(x,cy+Math.sin((x/w)*Math.PI*5)*16);ctx.stroke();
-    ctx.lineWidth=2.5;ctx.strokeRect(w*0.04,cy-11,14,22);ctx.strokeRect(w*0.92,cy-11,14,22);
-  } else if(item.shapes==='sensor'){
-    ctx.beginPath();ctx.moveTo(w*0.14,cy);ctx.lineTo(cx-18,cy);ctx.lineTo(cx-18,cy-28);ctx.lineTo(cx+18,cy-28);ctx.lineTo(cx+18,cy);ctx.lineTo(w*0.86,cy);ctx.stroke();
-    ctx.beginPath();ctx.arc(cx,cy,18,0,Math.PI*2);ctx.stroke();
-    for(let i=1;i<4;i++){ctx.globalAlpha=0.25-i*0.05;ctx.beginPath();ctx.arc(cx,cy,18+i*12,0,Math.PI*2);ctx.stroke();} ctx.globalAlpha=1;
-  } else {
-    for(let i=1;i<5;i++){ctx.beginPath();ctx.arc(cx,cy,i*17,0,Math.PI*2);ctx.stroke();}
-    ctx.fillStyle=item.colors[2];ctx.shadowBlur=20;ctx.beginPath();ctx.arc(cx,cy,8,0,Math.PI*2);ctx.fill();
-  }
-  ctx.shadowBlur=0;
-  const vig=ctx.createRadialGradient(cx,cy,h*0.18,cx,cy,h*0.72);
-  vig.addColorStop(0,'transparent');vig.addColorStop(1,'rgba(248,247,245,0.6)');
-  ctx.fillStyle=vig;ctx.fillRect(0,0,w,h);
-}
+
 
 /* ─── TOAST HOOK ─── */
 function useToast() {
@@ -452,6 +411,7 @@ function ServicesPage({ setPage }) {
       },18);
     });
     return()=>timers.forEach(clearInterval);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   },[]);
   const svcs=[
     {n:'01',icon:'🔬',name:'Field Diagnostics & Fault Analysis',desc:'On-site condition monitoring using ultrasonic, vibration, and thermal imaging to pinpoint failures across industrial sites.',items:['Vibration spectrum analysis','Thermal imaging & oil analysis','Pressure drop & flow testing','Detailed fault report & quotation']},
@@ -783,13 +743,13 @@ function Footer({ setPage }) {
         </div>
         <div style={{display:'flex',gap:'24px',flexWrap:'wrap'}}>
           {['Privacy Policy','Terms & Conditions','Warranty','Careers'].map(l=>(
-            <a key={l} href="#" style={{fontFamily:"'Share Tech Mono',monospace",fontSize:'0.58rem',letterSpacing:'0.15em',color:'#666666',textDecoration:'none',textTransform:'uppercase'}}>{l}</a>
+            <a key={l} href="/" style={{fontFamily:"'Share Tech Mono',monospace",fontSize:'0.58rem',letterSpacing:'0.15em',color:'#666666',textDecoration:'none',textTransform:'uppercase'}}>{l}</a>
           ))}
         </div>
       </div>
       <div style={{display:'flex',alignItems:'center',justifyContent:'space-between',flexWrap:'wrap',gap:'12px',paddingTop:'20px',fontFamily:"'Share Tech Mono',monospace",fontSize:'0.54rem',color:'#999999',letterSpacing:'0.08em'}}>
         <span>© 2025 Hydraulic Diagnostic Services Pvt. Ltd. · All rights reserved</span>
-        <span>G.95, ALANDI-MARKAL ROAD,BEHIND VIVEKANAND HOSPITAL,DHANORE,Pune — 412 105 · GST: 27XXXXX0000X1ZX</span>
+        <span>G.95, ALANDI-MARKAL ROAD,BEHIND VIVEKANAND HOSPITAL,DHANORE,Pune — 412 105 · GST: 27AAUPR6419C2ZA</span>
       </div>
     </footer>
   );
