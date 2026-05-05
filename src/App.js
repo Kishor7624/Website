@@ -583,7 +583,7 @@ function GalleryPage() {
 function ContactPage({ toast }) {
   const [enqType, setEnqType] = useState(null);
   const [urgency, setUrgency] = useState(null);
-  const [firstName = useState('');
+  const [firstName] = useState('');
   const [company] = useState('');
   const [mobile] = useState('');
   const [email] = useState('');
