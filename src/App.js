@@ -42,6 +42,9 @@ const CSS = `
   .blink{animation:blink 1s step-end infinite}
   @keyframes lbIn{from{opacity:0}to{opacity:1}}
   .lb-anim{animation:lbIn .3s ease}
+  @media (max-width: 768px) {
+  .hamburger-btn { display: flex !important; }
+}
 `;
 
 /* ─── PARTS DATA ─── */
@@ -119,32 +122,71 @@ function SectionLabel({ children }) {
 
 /* ─── NAV ─── */
 function Nav({ page, setPage }) {
-  const links = [{id:'home',label:'Home'},{id:'parts',label:'Parts'},{id:'services',label:'Services'},{id:'gallery',label:'Gallery'},{id:'contact',label:'Contact'}];
+  const [menuOpen, setMenuOpen] = useState(false);
+  const links = [
+    {id:'home',label:'Home'},
+    {id:'parts',label:'Parts'},
+    {id:'services',label:'Services'},
+    {id:'gallery',label:'Gallery'},
+    {id:'contact',label:'Contact'}
+  ];
+
   return (
-    <nav style={{position:'fixed',top:0,left:0,right:0,zIndex:1000,height:'72px',display:'flex',alignItems:'center',justifyContent:'space-between',padding:'0 48px',background:'rgba(255,255,255,0.97)',backdropFilter:'blur(24px)',borderBottom:'1px solid rgba(200,16,46,0.25)',boxShadow:'0 1px 16px rgba(0,0,0,0.08)'}}>
-      <div style={{display:'flex',alignItems:'center',gap:'14px',cursor:'pointer'}} onClick={()=>setPage('home')}>
-        <div style={{width:'50px',height:'50px',flexShrink:0,background:'#fff',borderRadius:'4px',display:'flex',alignItems:'center',justifyContent:'center',padding:'4px',boxShadow:'0 0 0 2px rgba(200,16,46,.5),0 2px 12px rgba(0,0,0,.12)'}}>
-          <img src={LOGO_WHITE} alt="HDS" style={{width:'100%',height:'100%',objectFit:'contain',display:'block'}}/>
+    <>
+      <nav style={{position:'fixed',top:0,left:0,right:0,zIndex:1000,height:'72px',
+        display:'flex',alignItems:'center',justifyContent:'space-between',
+        padding:'0 48px',background:'rgba(255,255,255,0.97)',
+        backdropFilter:'blur(24px)',
+        borderBottom:'1px solid rgba(200,16,46,0.25)',
+        boxShadow:'0 1px 16px rgba(0,0,0,0.08)'}}>
+
+        {/* Logo — keep your existing logo code here */}
+
+        {/* Desktop nav — keep your existing nav links here */}
+
+        {/* Hamburger button — shows only on mobile */}
+        <button onClick={()=>setMenuOpen(!menuOpen)} style={{
+          display:'none',
+          background:'none',border:'none',cursor:'pointer',
+          flexDirection:'column',gap:'5px',padding:'8px'
+        }} className="hamburger-btn">
+          <span style={{width:'22px',height:'2px',background:'#111111',display:'block',
+            transform:menuOpen?'rotate(45deg) translate(5px,5px)':'none',transition:'all .3s'}}/>
+          <span style={{width:'22px',height:'2px',background:'#111111',display:'block',
+            opacity:menuOpen?0:1,transition:'all .3s'}}/>
+          <span style={{width:'22px',height:'2px',background:'#111111',display:'block',
+            transform:menuOpen?'rotate(-45deg) translate(5px,-5px)':'none',transition:'all .3s'}}/>
+        </button>
+      </nav>
+
+      {/* Mobile dropdown menu */}
+      {menuOpen&&(
+        <div style={{
+          position:'fixed',top:'72px',left:0,right:0,zIndex:999,
+          background:'#ffffff',borderBottom:'2px solid #c8102e',
+          padding:'12px 16px',display:'flex',flexDirection:'column',gap:'4px',
+          boxShadow:'0 8px 24px rgba(0,0,0,0.12)'
+        }}>
+          {links.map(l=>(
+            <button key={l.id} onClick={()=>{setPage(l.id);setMenuOpen(false);}} style={{
+              background:'none',border:'none',
+              color:page===l.id?'#c8102e':'#111111',
+              fontFamily:"'Share Tech Mono',monospace",
+              fontSize:'0.85rem',letterSpacing:'0.14em',
+              textTransform:'uppercase',padding:'14px 8px',
+              cursor:'pointer',textAlign:'left',
+              borderBottom:'1px solid rgba(0,0,0,0.08)'
+            }}>{l.label}</button>
+          ))}
+          <button onClick={()=>{setPage('contact');setMenuOpen(false);}} style={{
+            background:'#c8102e',border:'none',color:'#ffffff',
+            fontFamily:"'Share Tech Mono',monospace",fontSize:'0.75rem',
+            letterSpacing:'0.18em',textTransform:'uppercase',
+            padding:'14px',cursor:'pointer',borderRadius:'3px',marginTop:'8px'
+          }}>Get Quote</button>
         </div>
-        <div>
-          <div style={{fontFamily:"'Bebas Neue',sans-serif",fontSize:'1rem',letterSpacing:'0.16em',color:'#111111',lineHeight:1}}>HYDRAULIC DIAGNOSTIC SERVICES</div>
-          <div style={{fontFamily:"'Share Tech Mono',monospace",fontSize:'0.46rem',letterSpacing:'0.2em',color:'#c8102e',textTransform:'uppercase'}}>Large Hydraulic Drive Solutions · Parts &amp; Service</div>
-        </div>
-      </div>
-      <div style={{display:'flex',gap:'4px',alignItems:'center'}}>
-        {links.map(l=>(
-          <button key={l.id} onClick={()=>setPage(l.id)} style={{
-            background:'none',border:'none',
-            color:page===l.id?'#111111':'#666666',
-            fontFamily:"'Share Tech Mono',monospace",fontSize:'0.62rem',letterSpacing:'0.14em',
-            textTransform:'uppercase',padding:'9px 14px',cursor:'pointer',
-            borderBottom:page===l.id?'2px solid #c8102e':'2px solid transparent',
-            transition:'all .3s'
-          }}>{l.label}</button>
-        ))}
-        <button onClick={()=>setPage('contact')} style={{background:'#c8102e',border:'none',color:'#111111',fontFamily:"'Share Tech Mono',monospace",fontSize:'0.62rem',letterSpacing:'0.18em',textTransform:'uppercase',padding:'9px 20px',cursor:'pointer',borderRadius:'3px',marginLeft:'8px'}}>Get Quote</button>
-      </div>
-    </nav>
+      )}
+    </>
   );
 }
 
