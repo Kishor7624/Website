@@ -393,7 +393,7 @@ function PartsPage({ toast }) {
   const [cat, setCat] = useState('all');
   const [q, setQ] = useState('');
   const [parts, setParts] = useState([]);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true); // eslint-disable-line no-unused-vars
   const cats = ['all','pump','motor','valve','seal','sensor'];
 
   // Fetch parts from Supabase on load
