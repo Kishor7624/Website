@@ -29,6 +29,18 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <!-- Netlify Forms detection — hidden, never visible to users -->
+    <form name="hds-enquiry" netlify netlify-honeypot="bot-field" hidden>
+      <input type="text"  name="firstName"/>
+      <input type="text"  name="lastName"/>
+      <input type="text"  name="company"/>
+      <input type="text"  name="mobile"/>
+      <input type="email" name="email"/>
+      <input type="text"  name="driveModel"/>
+      <input type="text"  name="urgency"/>
+      <input type="text"  name="enquiryType"/>
+      <textarea           name="message"></textarea>
+      </form>
     <!--
       This HTML file is a template.
       If you open it directly in the browser, you will see an empty page.
@@ -39,5 +51,6 @@
       To begin the development, run `npm start` or `yarn start`.
       To create a production bundle, use `npm run build` or `yarn build`.
     -->
+      
   </body>
 </html>
