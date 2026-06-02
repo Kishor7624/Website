@@ -977,12 +977,12 @@ function ContactPage({ toast }) {
                         body: new URLSearchParams(formData).toString(),
                       });
                       if(res.ok){
-                        toast.show('\u2705 Enquiry submitted \u2014 our team will contact you within 2 hours (IST).');
+                        toast.show('Enquiry submitted our team will contact you within 2 hours (IST).');
                       } else {
-                        toast.show('\u274c Submission failed \u2014 please call +91 98765 43210');
+                        toast.show(' Submission failed please call +91 9850968155');
                       }
                     } catch(err){
-                      toast.show('\u274c Network error \u2014 please call +91 98765 43210');
+                      toast.show('Network error  please call +91 9850968155');
                     }
                   }}
                   style={{width:'100%',padding:'15px',background:'#c8102e',border:'none',color:'#f4f4f0',fontFamily:"'Share Tech Mono',monospace",fontSize:'0.7rem',letterSpacing:'0.22em',textTransform:'uppercase',cursor:'pointer',borderRadius:'4px',marginTop:'6px'}}>
