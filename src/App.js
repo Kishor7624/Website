@@ -110,10 +110,9 @@ const GALLERY = [
   {id:13, cat:'parts',    title:'Zenmax Radial Motor — Cylinder Barrel',  loc:'Zenmax Factory',           uri:'/gallery/photo13.jpeg'},
   {id:14, cat:'workshop', title:'HDS & Zenmax Partnership Meeting',       loc:'Zenmax HQ, China',         uri:'/gallery/photo14.jpeg'},
   {id:15, cat:'parts',    title:'Zenmax Drive Motor — Showroom Floor',    loc:'Zenmax Factory',           uri:'/gallery/photo15.jpeg'},
-  {id:16, cat:'workshop', title:'Zenmax Hydraulic Test Bench',            loc:'Zenmax Factory',           uri:'/gallery/photo16.jpeg'},
-  {id:17, cat:'field',    title:'Before & After — Motor Replacement',     loc:'Paper Mill, India',        uri:'/gallery/photo17.jpeg'},
-  {id:18, cat:'field',    title:'On-Site Motor Commissioning',            loc:'Cement Plant, India',      uri:'/gallery/photo18.jpeg'},
-  {id:19, cat:'overhaul', title:'Rotor Assembly — Chain Lift',            loc:'HDS Workshop, Pune',       uri:'/gallery/photo19.jpeg'},
+  {id:16, cat:'field',    title:'Before & After — Motor Replacement',     loc:'Paper Mill, India',        uri:'/gallery/photo17.jpeg'},
+  {id:17, cat:'field',    title:'On-Site Motor Commissioning',            loc:'Cement Plant, India',      uri:'/gallery/photo18.jpeg'},
+  {id:18, cat:'overhaul', title:'Rotor Assembly — Chain Lift',            loc:'HDS Workshop, Pune',       uri:'/gallery/photo19.jpeg'},
 ];
 
 
