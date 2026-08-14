@@ -1017,6 +1017,19 @@ function Footer({ setPage }) {
         <span>© 2025 Hydraulic Diagnostic Services Pvt. Ltd. · All rights reserved</span>
         <span>G.95, ALANDI-MARKAL ROAD,BEHIND VIVEKANAND HOSPITAL,DHANORE,Pune — 412 105 · GST: 27AAUPR6419C2ZA</span>
       </div>
+      {/* Under development notice */}
+      <div style={{
+        textAlign:'center',
+        paddingTop:'10px',
+        fontFamily:"'Share Tech Mono',monospace",
+        fontSize:'0.52rem',
+        letterSpacing:'0.1em',
+        color:'#c8102e',
+        borderTop:'1px solid rgba(200,16,46,0.15)',
+        marginTop:'10px'
+      }}>
+        🚧 This website is currently under development — some features may be incomplete
+      </div>
     </footer>
   );
 }
