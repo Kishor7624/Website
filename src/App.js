@@ -1022,7 +1022,7 @@ function Footer({ setPage }) {
         textAlign:'center',
         paddingTop:'10px',
         fontFamily:"'Share Tech Mono',monospace",
-        fontSize:'0.52rem',
+        fontSize:'1.5rem',
         letterSpacing:'0.1em',
         color:'#c8102e',
         borderTop:'1px solid rgba(200,16,46,0.15)',
